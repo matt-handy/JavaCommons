@@ -1,0 +1,22 @@
+<project>
+	<target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" classpathref="classpath"/>
+    </target>
+	
+	<path id="classpath">
+	    <fileset dir="." includes="**/*.jar"/>
+	    <fileset dir="${gmsec.home}" includes="**/*.jar"/>
+	</path>
+
+    <target name="jar" depends="compile" >
+        <mkdir dir="build/deploy"/>
+    	<jar destfile="build/deploy/JavaCommons.jar" basedir="build/classes">
+          
+        </jar>
+    </target>
+</project>
