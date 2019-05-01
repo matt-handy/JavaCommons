@@ -32,7 +32,7 @@ public class Log {
 		return instance;
 	}
 	
-	public enum LogLevel {NOMINAL(1), WARNING(3), CRITICAL(4);
+	public enum LogLevel {DEBUG(0), NOMINAL(1), WARNING(3), CRITICAL(4);
 		public final int levelMap;
 		private LogLevel(int levelMap){
 			this.levelMap = levelMap;
@@ -44,6 +44,8 @@ public class Log {
 		
 		public static String getName(int levelMap){
 			switch(levelMap){
+			case 0:
+				return "Debug";
 			case 1:
 				return "Nominal";
 			case 3:
