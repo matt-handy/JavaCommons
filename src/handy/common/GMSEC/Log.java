@@ -75,7 +75,7 @@ public class Log {
 		
 	}
 	
-	public static void setConnectionManager(ConnectionManager connMan, String subject) throws GMSEC_Exception{
+	public synchronized static void setConnectionManager(ConnectionManager connMan, String subject) throws GMSEC_Exception{
 		getInstance().connMan = connMan;
 		connMan.setLoggingDefaults(subject, new ArrayList<Field>());
 	}
