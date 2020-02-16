@@ -114,14 +114,12 @@ public class ColumnParser {
 								for (Pattern pattern : mapper.getPossibleRegex()) {
 									if (pattern.matcher(elems[idx]).find() &&
 											(mapper.getExactLen() == -1 || mapper.getExactLen() == elems[idx].length())) {
-										System.out.println("PIdx: " + label + " : " + idx);
 										cti.setIndex(label, idx);
 									}
 								}
 							}else if(mapper.getPossibleValues() != null && !mapper.isProbabisticContains()) {
 								if(contains(elems[idx], mapper.getPossibleValues()) &&
 										(mapper.getExactLen() == -1 || mapper.getExactLen() == elems[idx].length())) {
-									System.out.println("CIdx: " + label + " : " + idx);
 									cti.setIndex(label, idx);
 								}
 							}else if(mapper.getPossibleValues() != null && mapper.isProbabisticContains()){
@@ -142,7 +140,6 @@ public class ColumnParser {
 			LabelToColumnTag mapper = cti.getMapper(label);
 			if(mapper.isProbabisticContains()) {
 				cti.setIndex(label, ArrayHelper.getIndexOfHighestAboveZero(probabilisticMapper.get(label)));
-				System.out.println("ProbIdx: " + label + " : " + cti.getIndex(label));
 			}
 		}
 		
